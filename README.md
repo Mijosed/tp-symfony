@@ -30,17 +30,17 @@ php bin/console hautelook:fixtures:load
 
 > **Note** : Il faut être connecté pour avoir accès aux pages hormis accueil, login et register. Toutes les routes sont protégées.
 
-### Connexion avec le rôle admin ( Accès au dashboard admin - CRUD)
+### Connexion avec le rôle admin (Accès au dashboard admin - CRUD)
 - **Email** : admin@gmail.com
 - **Mot de passe** : test
 - **Username affiché** : Baptiste Vasseur
 
-### Connexion avec le rôle user (lecture seule)
+### Connexion avec le rôle user (Lecture seule)
 - **Email** : user@gmail.com
 - **Mot de passe** : test
 - **Username affiché** : User User
 
-### Connexion avec un compte banni ( Page banni )
+### Connexion avec un compte banni (Page banni)
 - **Email** : banned@gmail.com
 - **Mot de passe** : test
 - **Username affiché** : Banned Banned

@@ -4,14 +4,21 @@
 ### Prérequis
 - Symfony CLI
 
-### Commande à lancer
+### Installer les dépendances
 ```bash
-symfony serve
+composer install
 ```
+
+> **Note** : Configurer et créer la base de données
 
 ### Charger les fixtures
 ```bash
 php bin/console hautelook:fixtures:load
+```
+
+### Commande à lancer
+```bash
+symfony serve
 ```
 
 ## Fonctionnalités

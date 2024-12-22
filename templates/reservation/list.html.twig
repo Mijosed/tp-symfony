@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Réservations{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 mb-6">Liste des Réservations</h1>
+
+    <table class="w-full border border-gray-300 text-left">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 border">Nom du Client</th>
+                <th class="py-2 px-4 border">Téléphone</th>
+                <th class="py-2 px-4 border">Date de Réservation</th>
+                <th class="py-2 px-4 border">Nombre de Personnes</th>
+                <th class="py-2 px-4 border">Numéro de Table</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td class="py-2 px-4 border">{{ reservation.customerName }}</td>
+                    <td class="py-2 px-4 border">{{ reservation.customerPhone }}</td>
+                    <td class="py-2 px-4 border">{{ reservation.reservationDate|date('d/m/Y H:i') }}</td>
+                    <td class="py-2 px-4 border">{{ reservation.numberofGuests }}</td>
+                    <td class="py-2 px-4 border">
+                        {{ reservation.diningTable ? reservation.diningTable.number : 'Non assignée' }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-gray-500">Aucune réservation trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

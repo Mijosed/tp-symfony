@@ -7,12 +7,13 @@
 
         <!-- Navigation Links -->
         <ul class="flex space-x-8 text-lg font-medium">
-            <li><a href="{{path('app_home')}}" class="hover:text-yellow-300">Accueil</a></li>
-            <li><a href="#" class="hover:text-yellow-300">Restaurants</a></li>
-            <li><a href="#" class="hover:text-yellow-300">Tables</a></li>
-            <li><a href="#" class="hover:text-yellow-300">Menus</a></li>
-            <li><a href="#" class="hover:text-yellow-300">Réservations</a></li>
+            {% if is_granted('ROLE_USER') %}
+            <li><a href="{{path('app_restaurant_list')}}" class="hover:text-yellow-300">Restaurants</a></li>
+            <li><a href="{{path('app_table_list')}}" class="hover:text-yellow-300">Tables</a></li>
+            <li><a href="{{path('app_menu_list')}}" class="hover:text-yellow-300">Menus</a></li>
+            <li><a href="{{path('app_reservation_list')}}" class="hover:text-yellow-300">Réservations</a></li>
             <li><a href="{{ path('app_contact') }}" class="hover:text-yellow-300">Contact</a></li>
+            {% endif %}
 
             <!-- Admin Link -->
             {% if is_granted('ROLE_ADMIN') %}

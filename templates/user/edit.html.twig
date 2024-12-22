@@ -5,11 +5,23 @@
 {% block content %}
 <div class="container mx-auto px-4 py-8">
     <!-- Titre -->
-    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Modifier l'Utilisateur</h1>
+    <h1 class="text-2xl font-bold text-red-600 mb-6 text-center">Modifier l'Utilisateur</h1>
 
     <!-- Formulaire -->
-    <div class="bg-white shadow-lg rounded-xl p-8 border border-gray-200">
-        {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <form method="post">
+            {% for field in form %}
+                <div class="mb-4">
+                    {{ form_label(field, null, {'label_attr': {'class': 'block text-gray-700 font-medium mb-2'}}) }}
+                    {{ form_widget(field, {'attr': {'class': 'w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500'}}) }}
+                    {{ form_errors(field) }}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition">
+                Mettre à jour
+            </button>
+        </form>
     </div>
 
     <!-- Liens supplémentaires -->

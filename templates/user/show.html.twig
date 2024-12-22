@@ -28,10 +28,6 @@
                 <th class="py-2 px-4 border bg-gray-100">Rôles</th>
                 <td class="py-2 px-4 border">{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
-            <tr>
-                <th class="py-2 px-4 border bg-gray-100">Token de Réinitialisation</th>
-                <td class="py-2 px-4 border">{{ user.resetPasswordToken }}</td>
-            </tr>
         </tbody>
     </table>
 

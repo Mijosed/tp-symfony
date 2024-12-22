@@ -36,4 +36,8 @@
     </table>
 
     <div class="mt-6 flex justify-between items-center">
-        <a href="{{ path('app_restaurant_index') }
+        <a href="{{ path('app_restaurant_index') }}" class="text-blue-500 hover:underline">Retour à la liste</a>
+        <a href="{{ path('app_restaurant_edit', {'id': restaurant.id}) }}" class="text-blue-500 hover:underline">Modifier</a>
+    </div>
+</div>
+{% endblock %}

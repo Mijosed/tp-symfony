@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Menus{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 mb-6">Liste des Menus</h1>
+    <table class="w-full border border-gray-300 text-left">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 border">Id</th>
+                <th class="py-2 px-4 border">Nom</th>
+                <th class="py-2 px-4 border">Description</th>
+                <th class="py-2 px-4 border">Prix</th>
+                <th class="py-2 px-4 border">Disponible</th>
+                <th class="py-2 px-4 border">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td class="py-2 px-4 border">{{ menu.id }}</td>
+                <td class="py-2 px-4 border">{{ menu.name }}</td>
+                <td class="py-2 px-4 border">{{ menu.description }}</td>
+                <td class="py-2 px-4 border">{{ menu.price }}</td>
+                <td class="py-2 px-4 border">{{ menu.isAvailable ? 'Oui' : 'Non' }}</td>
+                <td class="py-2 px-4 border">
+                    <a href="{{ path('app_menu_show', {'id': menu.id}) }}" class="text-blue-500 hover:underline">Afficher</a>
+                    <a href="{{ path('app_menu_edit', {'id': menu.id}) }}" class="text-green-500 hover:underline">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6" class="py-2 px-4 border text-center text-gray-500">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-6">
+        <a href="{{ path('app_menu_new') }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Créer un nouveau</a>
+    </div>
+</div>
+{% endblock %}

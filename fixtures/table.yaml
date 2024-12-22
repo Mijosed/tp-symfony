@@ -1,0 +1,6 @@
+App\Entity\Table:
+  table_{1..30}:
+    number: '<current()>'
+    seats: '<numberBetween(2, 10)>'
+    isAvailable: '<boolean()>'
+    restaurant: '@restaurant_<numberBetween(1, 10)>'

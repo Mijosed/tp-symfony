@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Menu{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 mb-6">Détails du Menu</h1>
+
+    <table class="w-full border border-gray-300 text-left">
+        <tbody>
+            <tr>
+                <th class="py-2 px-4 border bg-gray-100">Id</th>
+                <td class="py-2 px-4 border">{{ menu.id }}</td>
+            </tr>
+            <tr>
+                <th class="py-2 px-4 border bg-gray-100">Nom</th>
+                <td class="py-2 px-4 border">{{ menu.name }}</td>
+            </tr>
+            <tr>
+                <th class="py-2 px-4 border bg-gray-100">Description</th>
+                <td class="py-2 px-4 border">{{ menu.description }}</td>
+            </tr>
+            <tr>
+                <th class="py-2 px-4 border bg-gray-100">Prix</th>
+                <td class="py-2 px-4 border">{{ menu.price }}</td>
+            </tr>
+            <tr>
+                <th class="py-2 px-4 border bg-gray-100">Disponible</th>
+                <td class="py-2 px-4 border">{{ menu.isAvailable ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-6 flex justify-between items-center">
+        <a href="{{ path('app_menu_index') }}" class="text-blue-500 hover:underline">← Retour à la liste</a>
+        <a href="{{ path('app_menu_edit', {'id': menu.id}) }}" class="text-green-500 hover:underline">Modifier</a>
+    </div>
+
+    <div class="mt-4">
+        {{ include('menu/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Réservations{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 mb-6">Liste des Réservations</h1>
+    <table class="w-full border border-gray-300 text-left">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 border">Id</th>
+                <th class="py-2 px-4 border">Nom du Client</th>
+                <th class="py-2 px-4 border">Téléphone</th>
+                <th class="py-2 px-4 border">Date de Réservation</th>
+                <th class="py-2 px-4 border">Nombre d'Invités</th>
+                <th class="py-2 px-4 border">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td class="py-2 px-4 border">{{ reservation.id }}</td>
+                <td class="py-2 px-4 border">{{ reservation.customerName }}</td>
+                <td class="py-2 px-4 border">{{ reservation.customerPhone }}</td>
+                <td class="py-2 px-4 border">{{ reservation.reservationDate ? reservation.reservationDate|date('Y-m-d H:i') : '' }}</td>
+                <td class="py-2 px-4 border">{{ reservation.numberofGuests }}</td>
+                <td class="py-2 px-4 border">
+                    <a href="{{ path('app_reservation_show', {'id': reservation.id}) }}" class="text-blue-500 hover:underline">Afficher</a>
+                    <a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}" class="text-green-500 hover:underline">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6" class="py-2 px-4 border text-center text-gray-500">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-6">
+        <a href="{{ path('app_reservation_new') }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Créer un nouveau</a>
+    </div>
+</div>
+{% endblock %}

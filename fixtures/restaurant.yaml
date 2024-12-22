@@ -1,0 +1,7 @@
+App\Entity\Restaurant:
+  restaurant_{1..10}:
+    name: '<company()>'
+    address: '<streetAddress()>'
+    city: '<city()>'
+    phone: '<phoneNumber()>'
+    email: '<email()>'

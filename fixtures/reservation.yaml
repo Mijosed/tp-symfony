@@ -1,0 +1,7 @@
+App\Entity\Reservation:
+  reservation_{1..10}:
+    customerName: '<name()>'
+    customerPhone: '<phoneNumber()>'
+    reservationDate: '<dateTimeBetween("-1 year", "now")>'
+    numberOfGuests: '<numberBetween(1, 10)>'
+    diningTable: '@table_<numberBetween(1, 30)>'

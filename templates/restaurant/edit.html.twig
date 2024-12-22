@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Restaurant{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 mb-6">Modifier le Restaurant</h1>
+
+    <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        {{ include('restaurant/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
+
+    <div class="mt-6 flex justify-between items-center">
+        <a href="{{ path('app_restaurant_index') }}" class="text-blue-500 hover:underline">← Retour à la liste</a>
+        {{ include('restaurant/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+App\Entity\Menu:
+  menu_{1..20}:
+    name: '<word()> Menu'
+    description: '<sentence(6, true)>'
+    price: '<numberBetween(10, 100)>'
+    isAvailable: '<boolean()>'
+    restaurant: '@restaurant_<numberBetween(1, 10)>'
